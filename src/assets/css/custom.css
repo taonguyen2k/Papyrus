@@ -1,0 +1,27 @@
+/* map */
+.map_site{
+    height: 300px;
+    width: 90%;
+}
+/* footer */
+.Quick{
+    margin-top: 40px;
+}
+.Quick__text{
+    font-size: 25px;
+}
+/* portfolio */
+.text_portfolio{
+    font-weight: 700;
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+.portfolio .image_app{
+    margin-bottom: 20px;
+    
+
+}
+.portfolio .image_app button{
+    color: #dc3545;
+
+}
