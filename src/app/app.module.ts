@@ -14,6 +14,7 @@ import { MainComponent } from './components/main/main.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { CumstomerserviceComponent } from './pages/cumstomerservice/cumstomerservice.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { SignupComponent } from './pages/signup/signup.component';
     AboutusComponent,
     LoginComponent,
     SignupComponent,
+    CumstomerserviceComponent,
   ],
   imports: [
     BrowserModule,

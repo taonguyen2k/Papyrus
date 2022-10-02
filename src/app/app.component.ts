@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import productsdata from '../app/products.json';
+import { Products } from './Products';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.html', 
+  // template: `<app-shop [products] = "products"></app-shop>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'mainproject';
 
-  constructor(private router:Router){}
-
-  gotoPage(pageName:string):void{
-    this.router.navigate([`${pageName}`]);
-  }
 }
