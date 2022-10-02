@@ -9,6 +9,7 @@ import { MainComponent } from './components/main/main.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 const routes: Routes = [
   {path: 'Contact', component: ContactComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'Aboutus', component: AboutusComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'Signup', component: SignupComponent},
+  {path: 'Blog', component: BlogComponent},
   {path:'', redirectTo:'/Main', pathMatch: 'full'}
 ];
 
