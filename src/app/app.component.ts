@@ -11,4 +11,5 @@ import { Products } from './Products';
 export class AppComponent {
   title = 'mainproject';
 
+  products: Products[] = productsdata;
 }
