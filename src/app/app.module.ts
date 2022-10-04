@@ -14,7 +14,11 @@ import { MainComponent } from './components/main/main.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+
 import { BlogComponent } from './pages/blog/blog.component';
+import { CumstomerserviceComponent } from './pages/cumstomerservice/cumstomerservice.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 @NgModule({
@@ -31,11 +35,17 @@ import { BlogComponent } from './pages/blog/blog.component';
     AboutusComponent,
     LoginComponent,
     SignupComponent,
+
     BlogComponent,
+
+    CumstomerserviceComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
