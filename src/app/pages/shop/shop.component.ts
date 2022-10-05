@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import productsdata from '../../products.json';
-import { Products } from '../../Products';
+import { Products } from 'src/app/Products';
 
 @Component({
   selector: 'app-shop',
@@ -18,10 +18,15 @@ export class ShopComponent implements OnInit {
   products: Products[] = productsdata;
   p: number = 1;  
   total: number = this.products.length;
+  SelectedPro : Products | undefined;
   
   constructor() { }
 
   ngOnInit(): void {
   }
 
+    onSelect(pro:Products): void {
+      this.SelectedPro = pro;
+      console.log(`SelectedPro = ${JSON.stringify(this.SelectedPro)}`)
+    }
 }
