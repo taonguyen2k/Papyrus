@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Products } from 'src/app/Products';
-import productsdata from "../../products.json"
 
 @Component({
   selector: 'app-main',
@@ -8,8 +6,6 @@ import productsdata from "../../products.json"
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
-  products : Products[] = productsdata;
 
   constructor() { }
 

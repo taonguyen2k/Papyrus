@@ -20,6 +20,7 @@ import { ProductService } from './product.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,13 +37,10 @@ import { ProductService } from './product.service';
     SignupComponent,
     BlogComponent,
     CumstomerserviceComponent,
-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NgxPaginationModule,
-
+    AppRoutingModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
