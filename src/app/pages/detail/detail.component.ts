@@ -1,22 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Products } from 'src/app/Products';
-
-import { ShopComponent } from '../shop/shop.component';
-
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  template : `<app-detail [products]="SelectedPro"></app-detail>`,
-  styleUrls: ['./detail.component.css']
+  styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
-
   @Input() products: Products | undefined;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+    
+  ) {}
 
   ngOnInit(): void {
+    this.getProductFromRoute();
+  }
+
+  getProductFromRoute(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.productService.getProductFromId(id).subscribe(products => this.products = products);
   }
 
 }

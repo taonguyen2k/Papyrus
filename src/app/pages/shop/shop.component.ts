@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import productsdata from '../../products.json';
 import { Products } from 'src/app/Products';
+import { ProductService } from 'src/app/product.service';
 
 @Component({
   selector: 'app-shop',
@@ -16,17 +17,31 @@ import { Products } from 'src/app/Products';
 export class ShopComponent implements OnInit {
 
   products: Products[] = productsdata;
+
   p: number = 1;  
   total: number = this.products.length;
-  SelectedPro : Products | undefined;
   
-  constructor() { }
+  constructor(private productService: ProductService) { 
 
-  ngOnInit(): void {
   }
 
-    onSelect(pro:Products): void {
-      this.SelectedPro = pro;
-      console.log(`SelectedPro = ${JSON.stringify(this.SelectedPro)}`)
-    }
+  getProductsFromServices(){
+    // this.products = this.productService.getProduct()
+    this.productService.getProduct().subscribe(
+      (updatedProducts) => {
+        this.products = updatedProducts
+      }
+    )
+  }
+
+  ngOnInit(): void {
+    this.getProductsFromServices()
+  }
+
+  SelectedPro : Products | undefined;
+
+  onSelect(pro:Products): void {
+    this.SelectedPro = pro;
+    console.log(`SelectedPro = ${JSON.stringify(this.SelectedPro)}`)
+  }
 }

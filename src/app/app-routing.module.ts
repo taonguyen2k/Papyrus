@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'Contact', component: ContactComponent },
   { path: 'Cart', component: CartComponent },
   { path: 'Checkout', component: CheckoutComponent },
-  { path: 'Detail', component: DetailComponent },
+  { path: 'Detail/:id', component: DetailComponent },
   { path: 'Shop', component: ShopComponent },
   { path: 'Main', component: MainComponent },
   { path: 'Aboutus', component: AboutusComponent },

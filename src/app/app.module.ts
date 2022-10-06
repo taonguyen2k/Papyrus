@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -14,10 +13,10 @@ import { MainComponent } from './components/main/main.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
-
 import { BlogComponent } from './pages/blog/blog.component';
 import { CumstomerserviceComponent } from './pages/cumstomerservice/cumstomerservice.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductService } from './product.service';
 
 
 
@@ -35,9 +34,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AboutusComponent,
     LoginComponent,
     SignupComponent,
-
     BlogComponent,
-
     CumstomerserviceComponent,
 
   ],
@@ -47,7 +44,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule,
 
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
