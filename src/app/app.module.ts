@@ -40,7 +40,8 @@ import { ProductService } from './product.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
