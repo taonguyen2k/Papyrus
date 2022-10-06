@@ -2,7 +2,24 @@
     margin-left: 80px;
 }
 
-about_team-team_text{
-    background:#57e236;
-    color: black;
+.card-img-top{
+    max-height: 400px;
+    width: auto;
+}
+
+.text-xl-start{
+    margin-left: 40px;
+    margin-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.text-warning{
+    font-size: 1.3rem;
+
+}
+.list-image{
+    display: flex;
+    justify-content: space-between;
+}
+.list-image_logo{
+    margin: 10px 10px;
 }
