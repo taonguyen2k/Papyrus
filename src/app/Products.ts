@@ -1,11 +1,8 @@
-import productsdata from "../app/products.json";
-
-export interface Products {
-  id: number;
-  name: string;
-  picture: string;
-  price: number;
-  description: string;
+export class Products {
+  id: number | undefined;
+  name: string | undefined;
+  picture: string | undefined;
+  price: number | undefined;
+  description: string | undefined;
 }
 
-export let products: Products[] = productsdata;

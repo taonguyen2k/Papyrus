@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +14,11 @@ import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { CumstomerserviceComponent } from './pages/cumstomerservice/cumstomerservice.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductService } from './product.service';
+import { FormsModule } from '@angular/forms';
+import { PopupdetailsComponent } from './pages/popupdetails/popupdetails.component';
 
 
 @NgModule({
@@ -32,12 +36,16 @@ import { BlogComponent } from './pages/blog/blog.component';
     LoginComponent,
     SignupComponent,
     BlogComponent,
+    CumstomerserviceComponent,
+    PopupdetailsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxPaginationModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

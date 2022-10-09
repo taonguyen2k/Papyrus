@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
+import productsdata from '../../products.json';
+import { Products } from 'src/app/Products';
+import { ProductService } from 'src/app/product.service';
+
 
 @Component({
   selector: 'app-shop',
@@ -7,9 +12,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShopComponent implements OnInit {
 
-  constructor() { }
+  products: Products[] = productsdata;
 
-  ngOnInit(): void {
+  p: number = 1;  
+  total: number = this.products.length;
+
+  filterStatus = 'Allproducts';
+  
+  constructor(private productService: ProductService) { 
+
   }
 
+  getProductsFromServices(){
+    this.productService.getProduct().subscribe(
+      (updatedProducts) => {
+        this.products = updatedProducts
+      }
+    )
+  }
+
+  ngOnInit(): void {
+    this.getProductsFromServices()
+  }
+
+  SelectedPro : Products | undefined;
+
+  onSelect(pro:Products): void {
+    this.SelectedPro = pro;
+    console.log(`SelectedPro = ${JSON.stringify(this.SelectedPro)}`)
+  }
 }
