@@ -17,8 +17,8 @@ import { BlogComponent } from './pages/blog/blog.component';
 import { CumstomerserviceComponent } from './pages/cumstomerservice/cumstomerservice.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductService } from './product.service';
-
-
+import { FormsModule } from '@angular/forms';
+import { PopupdetailsComponent } from './pages/popupdetails/popupdetails.component';
 
 
 @NgModule({
@@ -37,11 +37,13 @@ import { ProductService } from './product.service';
     SignupComponent,
     BlogComponent,
     CumstomerserviceComponent,
+    PopupdetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

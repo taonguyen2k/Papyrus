@@ -12,11 +12,12 @@ import { ProductService } from 'src/app/product.service';
 })
 export class ShopComponent implements OnInit {
 
-
   products: Products[] = productsdata;
 
   p: number = 1;  
   total: number = this.products.length;
+
+  filterStatus = 'Allproducts';
   
   constructor(private productService: ProductService) { 
 
