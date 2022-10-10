@@ -1,9 +1,9 @@
-// herder
-var today = new Date();
-    var date = today.getDate() + '-' + (today.getMonth() + 1) +'-' +today.getFullYear();
-    var time = today.getHours() + ": " + today.getMinutes() + ":" + today.getSeconds();
-    var dateTime = date + ' '+ time
+// // herder
+// var today = new Date();
+//     var date = today.getDate() + '-' + (today.getMonth() + 1) +'-' +today.getFullYear();
+//     var time = today.getHours() + ": " + today.getMinutes() + ":" + today.getSeconds();
+//     var dateTime = date + ' '+ time
 
-    document.getElementById("hvn").innerHTML = dateTime;
+//     document.getElementById("hvn").innerHTML = dateTime;
 
-    console.log(today);
+//     console.log(today);
