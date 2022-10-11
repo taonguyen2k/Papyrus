@@ -14,6 +14,10 @@ export class ShopComponent implements OnInit {
 
   products: Products[] = productsdata;
 
+  keyword: string = '';
+
+  catStatus = 'all';
+
   p: number = 1;  
   total: number = this.products.length;
 
