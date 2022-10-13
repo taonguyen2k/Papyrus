@@ -33,16 +33,12 @@
                 </div>
                 <br><br><br>
 
-                <!-- <h5>Price: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h5> -->
-
-                <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
-                <div class="custom-control d-flex align-items-center justify-content-between dropdown ml-4"> 
+                
+                <div class="dropdown ml-4"> 
+                    <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
                     <form [formGroup]="myForm"> 
                         <select class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="Price" formControlName="filterProduct" placeholder="price"> 
-                            <option *ngFor="let k of PriceFilter; let i = index;" 
-                            [ngValue]="getValue(i)"> 
-                            {{ getValue(i).displayText }} 
-                            </option> 
+                            <option *ngFor="let k of PriceFilter; let i = index;" [ngValue]="getValue(i)"> {{ getValue(i).displayText }} </option> 
                         </select> 
                     </form> 
                 </div>
