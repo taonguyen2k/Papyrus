@@ -20,8 +20,35 @@
 
             <!-- Price Start -->
             <div class="border-bottom mb-4 pb-4">
+
+                <div class="dropdown ml-4">
+                    <select class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [(ngModel)]="catStatus">
+                        <option class="dropdown-item" value="all">Show All</option>
+                        <option class="dropdown-item" value="christmass">Christmas Gift</option>
+                        <option class="dropdown-item" value="valentine">Valentine Gift</option>
+                        <option class="dropdown-item" value="birthday">Birthday Gift</option>
+                        <option class="dropdown-item" value="wedding">Wedding Gift</option>
+                        <option class="dropdown-item" value="mothersday">Mother's Day Gift</option>
+                    </select>
+                </div>
+                <br><br><br>
+
+                <!-- <h5>Price: {{rangeValues[0] + ' - ' + rangeValues[1]}}</h5> -->
+
                 <h5 class="font-weight-semi-bold mb-4">Filter by price</h5>
-                <form>
+                <div class="custom-control d-flex align-items-center justify-content-between dropdown ml-4"> 
+                    <form [formGroup]="myForm"> 
+                        <select class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name="Price" formControlName="filterProduct" placeholder="price"> 
+                            <option *ngFor="let k of PriceFilter; let i = index;" 
+                            [ngValue]="getValue(i)"> 
+                            {{ getValue(i).displayText }} 
+                            </option> 
+                        </select> 
+                    </form> 
+                </div>
+
+
+                <!-- <form>
                     <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                         <input type="checkbox" class="custom-control-input" checked id="price-all">
                         <label class="custom-control-label" for="price-all">All Price</label>
@@ -52,7 +79,7 @@
                         <label class="custom-control-label" for="price-5">$40 - $50</label>
                         
                     </div>
-                </form>
+                </form> -->
             </div>
             <!-- Price End -->
              
@@ -73,45 +100,38 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="dropdown ml-4">
-                            <select class="btn border dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [(ngModel)]="catStatus">
-                                <option class="dropdown-item" value="all">Show All</option>
-                                <option class="dropdown-item" value="christmass">Christmas Gift</option>
-                                <option class="dropdown-item" value="valentine">Valentine Gift</option>
-                                <option class="dropdown-item" value="birthday">Birthday Gift</option>
-                                <option class="dropdown-item" value="wedding">Wedding Gift</option>
-                                <option class="dropdown-item" value="mothersday">Mother's Day Gift</option>
-                            </select>
-                        </div>
+                       
                     </div>
                 </div>
             
                 <!-- List Products -->
-                <div class="col-lg-4 col-md-6 col-sm-12 pb-1" *ngFor=" let products of products | filter:keyword | paginate: {itemsPerPage: 9, currentPage: p, totalItems: total}">
-                    <!-- <div *ngIf="catStatus === 'all' || 
-                            (catStatus === 'christmas' ) || 
-                            (catStatus === 'valentine') || 
-                            (catStatus === 'birthday') || 
-                            (catStatus === 'wedding') || 
-                            (catStatus === 'mothersday')">     -->
-                        <div class="card product-item border-0 mb-4">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <a (click)="onSelect(products)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><img class="img-fluid w-100" [src]= "products.picture" alt=""></a>
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">{{ products.name }}</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>${{ products.price }}</h6><h6 class="text-muted ml-2"></h6>
-                                <h6 class="text-muted ml-2"><del>${{(products.price * 1.2).toFixed(2)}}</del></h6>
+                <!-- <div *ngIf="(products | filter: keyword).length > 0; else noResults"> -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pb-1" *ngFor=" let products of filteredProducts | filter:keyword | paginate: {itemsPerPage: 9, currentPage: p, totalItems: total}">
+                        <div *ngIf="catStatus === 'all' || 
+                                (catStatus === 'christmas' ) || 
+                                (catStatus === 'valentine') || 
+                                (catStatus === 'birthday') || 
+                                (catStatus === 'wedding') || 
+                                (catStatus === 'mothersday')">    
+                            <div class="card product-item border-0 mb-4">
+                            <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                <a (click)="onSelect(products)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><img class="img-fluid w-100" [src]= "products.picture" alt=""></a>
+                            </div>
+                            <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                                <h6 class="text-truncate mb-3">{{ products.name }}</h6>
+                                <div class="d-flex justify-content-center">
+                                    <h6>${{ products.price }}</h6><h6 class="text-muted ml-2"></h6>
+                                    <h6 class="text-muted ml-2"><del>${{(products.price * 1.2).toFixed(2)}}</del></h6>
+                                </div>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between bg-light border">
+                                <a routerLink="/Detail/{{products.id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
+                                <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                            </div>
                             </div>
                         </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a routerLink="/Detail/{{products.id}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                        </div>
-                    <!-- </div> -->
-                </div>
+                    </div>
+                <!-- </div> -->
                 <!-- List Products End -->
 
                 <!-- Pagination from here -->
@@ -124,13 +144,17 @@
                 </div>
                 <!-- Pagination End  -->
 
+                <!-- <ng-template #noResults>
+                    <p>No results found for "{{keyword}}".</p>
+                </ng-template> -->
+
             </div>
         </div>
         <!-- Shop Product End -->
 
         <!-- Popup Start -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" style="background-color: #fff;">
+            <div class="modal-dialog modal-dialog-centered" style="background-color: #fff">
                 <div *ngIf="SelectedPro">
                     <app-popupdetails [products]="SelectedPro"></app-popupdetails>
                 </div>
